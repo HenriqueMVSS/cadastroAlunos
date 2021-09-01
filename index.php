@@ -22,7 +22,7 @@ require 'config.php';
     <form class="form" action="cad_alunos.php" method="POST">
       <label>
         Nome: <br>
-        <input type="text" name="name">
+        <input type="text" name="name" placeholder="insira seu nome">
       </label> </br>
       <label class='date'>
         Data de Nascimento: <br>
@@ -30,19 +30,19 @@ require 'config.php';
       </label> <br>
        <label>
         CPF: <br>
-        <input type="text" name="cpf">
+        <input type="text" name="cpf" placeholder="somente números" >
       </label> <br>
        <label>
         Telefone: <br>
-        <input type="text" name="telephone">
+        <input type="text" name="telephone" placeholder="somente números" >
       </label> <br>
        <label>
         Whatsapp: <br>
-        <input type="text" name="whatsapp">
+        <input type="text" name="whatsapp" placeholder="somente números">
       </label> <br>
        <label>
         Curso: <br>
-        <input type="text" name="course">
+        <input type="text" name="course" placeholder="insira seu curso">
       </label> <br>
       <input type="submit" value="Cadastrar">
     </form>

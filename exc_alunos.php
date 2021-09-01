@@ -6,7 +6,7 @@ $id= filter_input(INPUT_GET, 'id');
 
 if($id){
 
-  $sql = $conn->prepare("DELETE FROM alunos WHERE id=:id");
+  $sql = $conn->prepare("DELETE FROM aluno WHERE id=:id");
   $sql->bindValue(':id', $id);
   $sql->execute();
    

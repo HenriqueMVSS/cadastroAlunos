@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 require 'config.php';
 
 $lista = [];
-$sql = $conn->query("SELECT * FROM alunos");
+$sql = $conn->query("SELECT * FROM aluno");
 
 
 if ($sql->rowCount() > 0) {

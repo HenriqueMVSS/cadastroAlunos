@@ -6,7 +6,7 @@ $info =[];
 $id= filter_input(INPUT_GET, 'id');
 
 if($id){
-  $sql = $conn->prepare("SELECT * FROM alunos WHERE id = :id");
+  $sql = $conn->prepare("SELECT * FROM aluno WHERE id = :id");
   $sql->bindValue(':id', $id);
   $sql->execute();
 
