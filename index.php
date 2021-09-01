@@ -4,6 +4,16 @@ ini_set('display_startup_erros',1);
 error_reporting(E_ALL);
 
 require 'config.php';
+
+$lista = [];
+$sql = $conn->query("SELECT * FROM cursos");
+
+
+if ($sql->rowCount() > 0) {
+  
+  $lista = $sql->fetchAll(PDO::FETCH_ASSOC);
+  
+}
 ?>
 
 
@@ -41,8 +51,13 @@ require 'config.php';
         <input type="text" name="whatsapp" placeholder="somente números">
       </label> <br>
        <label>
-        Curso: <br>
-        <input type="text" name="course" placeholder="insira seu curso">
+        Curso:
+        <select >
+          <?php foreach ($lista as $key => $value){ ?>
+          <option > <?=$value['courses'];?></option>
+          <?php } ?>
+        </select>
+       
       </label> <br>
       <input type="submit" value="Cadastrar">
     </form>

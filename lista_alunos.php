@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 require 'config.php';
 
 $lista = [];
-$sql = $conn->query("SELECT * FROM aluno");
+$sql = $conn->query("SELECT * FROM aluno inner join cursos on aluno.curso_id = cursos.id_cursos;");
 
 
 if ($sql->rowCount() > 0) {
@@ -14,6 +14,8 @@ if ($sql->rowCount() > 0) {
   $lista = $sql->fetchAll(PDO::FETCH_ASSOC);
   
 }
+
+
 
 ?>
 <head>
@@ -49,7 +51,7 @@ if ($sql->rowCount() > 0) {
       <td><?=$value['cpf'];?></td>
       <td><?=$value['telefone'];?></td>
       <td><?=$value['wpp'];?></td>
-      <td></td>
+      <td><?=$value['courses'];?></td>
       <td>
             <a id="excluir" href="exc_alunos.php?id=<?=$value['id'];?>" onclick="return confirm(' Tem certeza que deseja excluir?')"> <img id='imgg' src="./assets/lixeira.png" alt=""> </a>
       </td>

@@ -5,6 +5,16 @@ require "config.php";
 $info =[];
 $id= filter_input(INPUT_GET, 'id');
 
+$lista = [];
+$sql = $conn->query("SELECT * FROM cursos");
+
+
+if ($sql->rowCount() > 0) {
+  
+  $lista = $sql->fetchAll(PDO::FETCH_ASSOC);
+  
+}
+
 if($id){
   $sql = $conn->prepare("SELECT * FROM aluno WHERE id = :id");
   $sql->bindValue(':id', $id);
@@ -59,9 +69,14 @@ if($id){
         Whatsapp: <br>
         <input type="text" name="whatsapp" value="<?=$info['wpp'];?>">
       </label> <br>
-       <label>
-        Curso: <br>
-        <input type="text" name="course" >
+      <label>
+        Curso:
+        <select >
+          <?php foreach ($lista as $key => $value){ ?>
+          <option > <?=$value['courses'];?></option>
+          <?php } ?>
+        </select>
+        
       </label> <br>
       <input type="submit" value="Salvar">
     </form>

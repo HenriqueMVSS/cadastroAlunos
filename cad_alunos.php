@@ -23,10 +23,12 @@ if($cpf){
     $sql->bindValue(':tel', $tel);
     $sql->bindValue(':wpp', $wpp);
     $sql->execute();
-
-    // $sql = $conn->prepare("INSERT INTO cursos (courses) VALUES (:course)");
-    // $sql->bindValue(':course', $course);
-    // $sql->execute();
+    
+    if($course){
+    $sql = $conn->prepare("INSERT INTO cursos (courses) VALUES (:course)");
+    $sql->bindValue(':course', $course);
+    $sql->execute();
+    }
 
     header("Location: lista_alunos.php");
     exit;

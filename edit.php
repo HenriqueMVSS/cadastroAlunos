@@ -12,11 +12,7 @@ $tel = filter_input(INPUT_POST, 'telephone');
 $wpp = filter_input(INPUT_POST, 'whatsapp');
 $course =  filter_input(INPUT_POST, 'course');
 
-if ($id) {
-    $sql = $conn->query("SELECT * FROM aluno WHERE cpf = $cpf ");
-    $retorno = $sql->rowCount();
-    $sql->execute();
-    if($retorno === 0){
+
     $sql = $conn->prepare("UPDATE aluno SET name_aluno = :name, dn = :dn,cpf = :cpf,telefone = :tel,wpp = :wpp WHERE id = :id ");
     $sql->bindValue(':name', $name);
     $sql->bindValue(':dn', $dn);
@@ -26,17 +22,7 @@ if ($id) {
     $sql->bindValue(':id', $id);
     $sql->execute();
 
-
-  header("Location: lista_alunos.php");
-  exit;
-  }else {
-        echo "<script>alert('CPF já cadastrado!')</script>";
-        
-    }
-} else {
-  header('Location: lista_alunos.php ');
-  exit;
-}
+  
 ?>
 <html>
 <head>
